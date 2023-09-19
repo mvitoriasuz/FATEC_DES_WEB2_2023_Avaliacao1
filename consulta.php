@@ -18,7 +18,7 @@ include_once("parametros.php");
 </head>
 <body>
 <div class="cabecalho" style="text-align: center;">
-         <h3>Realizar consulta de veículos cadastrados no Estácionamento da Fatec Araras</h3>
+         <h3>Painel de consulta de veículos cadastrados no Estácionamento da Fatec Araras</h3>
 </div>   
 <div class="container">
         <table class="table">
@@ -36,7 +36,7 @@ include_once("parametros.php");
         <?php endforeach; ?>
             </table>
             <div class="form-group" style="padding: 1;">
-                        <a class="btn btn-outline-danger" href="logout.php" role="button">Encerrar Sessão</a>
+                        <a class="btn btn-outline-warning" href="logout.php" role="button">Encerrar Sessão</a>
                     </div>
         </div> 
 </body>
