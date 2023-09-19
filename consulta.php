@@ -1,54 +1,41 @@
 <?php
-session_start(); 
- 
-if(!isset($_SESSION["login"]) || $_SESSION["senha"] !== true){
-    header("location: home.php");
-    exit;
-}
-
-
-
-function registros_consulta() {
-    $cadastros = [];
-    $arquivo = fopen('veiculo_cadastrado.txt', 'r');
-    
-    if ($arquivo) {
-        while (($linha = fgets($arquivo)) !== false) {
-            $dados = explode('|', $linha);
-            if (count($dados) === 3) {
-                $cadastros[] = ['Nome' => trim($dados[0]), 'RA' => trim($dados[1]), 'Placa' => trim($dados[2])];
-            }
-        }
-        fclose($arquivo);
-    }
-    return $cadastros;
-}
-
-$cadastros = registros_consulta();
+include_once("parametros.php");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Estácionamento Fatec Araras</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      <!-- Style do site -->
+      <style type="text/css">
+         body{ font: 14px sans-serif; background-color: #B20000;}
+         .cabecalho{ padding: 10px; color: #ffff;}
+         .btn-primary{background-color: #083391;}
+      </style>
+</head>
 <body>
-    <h2>Consulta dos Alunos</h2>
-    <table>
-        <tr>
+<div class="cabecalho" style="text-align: center;">
+         <h3>Realizar consulta de veículos cadastrados no Estácionamento da Fatec Araras</h3>
+</div>   
+<div class="container">
+        <table class="table">
+            <thead class="table-light">
             <th>Nome</th>
             <th>R.A.</th>
             <th>Placa</th>
-        </tr>
-        <?php foreach ($cadastros as $cadastros): ?>
+            </thead>
+            <?php foreach ($cadastros as $cadastros): ?>
             <tr>
                 <td><?php echo $cadastros['Nome']; ?></td>
                 <td><?php echo $cadastros['RA']; ?></td>
                 <td><?php echo $cadastros['Placa']; ?></td>
             </tr>
         <?php endforeach; ?>
-    </table>
-    
-    <br>
-    <a href="cadastrar.php">cadastro</a>
-    <a href="logout.php">Sair</a>
+            </table>
+
+            </div> 
 </body>
 </html>
