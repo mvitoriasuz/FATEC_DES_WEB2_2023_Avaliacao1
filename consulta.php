@@ -35,7 +35,9 @@ include_once("parametros.php");
             </tr>
         <?php endforeach; ?>
             </table>
-
-            </div> 
+            <div class="form-group" style="padding: 1;">
+                        <a class="btn btn-outline-danger" href="logout.php" role="button">Encerrar Sessão</a>
+                    </div>
+        </div> 
 </body>
 </html>
