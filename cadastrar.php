@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] !== true) {
-    header("Location: index.php");
+    header("Location: home.php");
     exit();
 }   
 
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="saudacoes" style="text-align: center;">
          <h3>Estácionamento Fatec Araras</h3>
          <p>Realize o cadastro do veículo</p>
-      </div>    
+</div>    
       <section class="vh-100">
          <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -66,11 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <?php if(isset($mensagem_login)) { echo $mensagem_login; } ?>
 
-                    <div class="form-group" style="padding: 2rem;">
+                    <div class="form-group" style="padding: 1,5rem;">
                         <input type="submit" class="btn btn-outline-primary" value="Cadastrar">
+                    </div>
+                    <div class="form-group" style="padding: 2rem;">
+                        <a class="btn btn-outline-primary" href="consulta.php" role="button">Consultar veículos cadastrados</a>
+                    </div>
+                    <div class="form-group" style="padding: 1;">
                         <a class="btn btn-outline-danger" href="logout.php" role="button">Encerrar Sessão</a>
-
-
                     </div>
                      </form>
                     </div>
